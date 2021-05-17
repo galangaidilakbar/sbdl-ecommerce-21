@@ -22,6 +22,8 @@ $stmt->execute();
 $stmt->bind_result($password, $email);
 $stmt->fetch();
 $stmt->close();
+
+include 'functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,6 +33,7 @@ $stmt->close();
   <title>Profile Page</title>
   <link href="style.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <?= load_icon() ?>
 </head>
 
 <body class="loggedin">
