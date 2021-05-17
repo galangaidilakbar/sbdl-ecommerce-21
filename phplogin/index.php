@@ -1,3 +1,7 @@
+<?php
+include 'functions.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -6,10 +10,7 @@
 	<title>Login</title>
 	<link href="style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-	<?php
-	include 'functions.php';
-	echo load_icon();
-	?>
+	<?= load_icon() ?>
 </head>
 
 <body>
