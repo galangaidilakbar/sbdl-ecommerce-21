@@ -60,7 +60,57 @@ function template_footer()
         </main>
         <footer>
             <div class="content-wrapper">
-                <p>&copy; $year, Shopping Cart System</p>
+                <p>&copy; $year, Gadgets Pedia</p>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
+EOT;
+}
+
+//Admin template header
+function admin_template_header($title)
+{
+  echo <<<EOT
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>$title</title>
+		<link href="../style.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../imgs/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../imgs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../imgs/favicon-16x16.png">
+    <link rel="manifest" href="../imgs/site.webmanifest">
+	</head>
+	<body>
+        <header>
+            <div class="content-wrapper">
+                <h1>Administration Panel</h1>
+                <nav>
+                    <a href="index.php">Home</a>
+                    <a href="index.php?page=products">Products</a>
+                </nav>
+                <div class="link-icons">
+                  <a href="../phplogin/logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </div>
+            </div>
+        </header>
+        <main>
+EOT;
+}
+
+function admin_template_footer()
+{
+  $year = date('Y');
+  echo <<<EOT
+        </main>
+        <footer>
+            <div class="content-wrapper">
+                <p>&copy; $year, Gadgets Pedia</p>
             </div>
         </footer>
         <script src="script.js"></script>
