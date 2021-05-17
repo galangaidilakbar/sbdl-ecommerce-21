@@ -6,6 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
   header('Location: index.html');
   exit;
 }
+
+include 'functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +17,7 @@ if (!isset($_SESSION['loggedin'])) {
   <title>Home Page</title>
   <link href="style.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <?= load_icon() ?>
 </head>
 
 <body class="loggedin">
