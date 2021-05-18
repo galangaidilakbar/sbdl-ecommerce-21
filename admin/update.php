@@ -24,8 +24,8 @@ if (isset($_GET['id'])) {
         $img = isset($_POST['img']) ? $_POST['img'] : '';
         $dataadded = isset($_POST['data_added']) ? $_POST['data_added'] : date('Y-m-d H:i:s');
         // Update the record
-        $stmt = $pdo->prepare('UPDATE contacts SET id = ?, name = ?, email = ?, phone = ?, title = ?, created = ? WHERE id = ?');
-        $stmt->execute([$id, $name, $desc, $price, $rrp, $quantity, $img, $dataadded, $_GET['id']]);
+        $stmt = $pdo->prepare('UPDATE `products` SET `name` = ?, `desc` = ?, `price` = ?, `rrp` = ?, `quantity` = ?, `img` = ?, `date_added` = ? WHERE `id` = ?');
+        $stmt->execute([$name, $desc, $price, $rrp, $quantity, $img, $dataadded, $_GET['id']]);
         $msg = 'Updated Successfully!';
     }
     // Get the products from the products table
@@ -47,19 +47,26 @@ if (isset($_GET['id'])) {
     <form action="update.php?id=<?= $products['id'] ?>" method="post">
         <label for="id">ID</label>
         <label for="name">Name</label>
-        <input type="text" name="id" value="<?= $products['id'] ?>" id="id">
+
+        <input type="number" name="id" value="<?= $products['id'] ?>" id="id">
         <input type="text" name="name" value="<?= $products['name'] ?>" id="name">
+
         <label for="desc">Description</label>
         <label for="img">Image</label>
-        <input type="textarea" name="desc" value="<?= $products['desc'] ?>" id="desc">
-        <input type="text" name="img" value="<?= $products['img'] ?>" id="img">
+
+        <input type="text" name="desc" value="<?= $products['desc'] ?>" id="desc">
+        <input type="file" name="img" value="<?= $products['img'] ?>" id="img">
+
         <label for="price">Price</label>
         <label for="rrp">RRP</label>
-        <input type="text" name="price" value="<?= $products['price'] ?>" id="price">
-        <input type="text" name="rrp" value="<?= $products['rrp'] ?>" id="rrp">
+
+        <input type="number" name="price" value="<?= $products['price'] ?>" id="price">
+        <input type="number" name="rrp" value="<?= $products['rrp'] ?>" id="rrp">
+
         <label for="quantity">Quantity</label>
         <label for="data">Date Added</label>
-        <input type="text" name="quantity" value="<?= $products['quantity'] ?>" id="quantity">
+
+        <input type="number" name="quantity" value="<?= $products['quantity'] ?>" id="quantity">
         <input type="datetime-local" name="data_added" value="<?= date('Y-m-d\TH:i', strtotime($products['date_added'])) ?>" id="data">
         <input type="submit" value="Update">
     </form>
