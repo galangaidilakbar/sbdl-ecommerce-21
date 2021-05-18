@@ -7,8 +7,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --black: #555555;
+  --white: #FFFFFF;
+}
+
 body {
-  background-color: #FFFFFF;
+  background-color: var(--white);
 }
 
 .container {
@@ -23,7 +28,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  background-color: #ffffff;
+  background-color: var(--white);
   box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -48,8 +53,8 @@ body {
   align-items: center;
   width: 50px;
   height: 50px;
-  background-color: #3274d6;
-  color: #ffffff;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .login form input[type="password"],
@@ -65,16 +70,16 @@ body {
   width: 100%;
   padding: 15px;
   margin-top: 20px;
-  background-color: #3274d6;
+  background-color: var(--black);
   border: 0;
   cursor: pointer;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--white);
   transition: background-color 0.2s;
 }
 
 .login form input[type="submit"]:hover {
-  background-color: #2868c7;
+  background-color: #3a3a3a;
   transition: background-color 0.2s;
 }
 
