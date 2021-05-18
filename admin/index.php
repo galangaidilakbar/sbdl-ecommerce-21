@@ -69,10 +69,10 @@ $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
     </table>
     <div class="pagination">
         <?php if ($page > 1) : ?>
-            <a href="read.php?page=<?= $page - 1 ?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+            <a href="index.php?page=<?= $page - 1 ?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
         <?php endif; ?>
         <?php if ($page * $records_per_page < $num_products) : ?>
-            <a href="read.php?page=<?= $page + 1 ?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+            <a href="index.php?page=<?= $page + 1 ?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
         <?php endif; ?>
     </div>
 </div>
