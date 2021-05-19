@@ -28,7 +28,7 @@ if (!empty($_POST)) {
     $stmt = $pdo->prepare('INSERT INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 
     // Output message
-    $msg = 'Created Successfully!';
+    $msg = 'Product Added Successfully!';
 
     try {
         $stmt->execute([$id, $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
@@ -42,9 +42,20 @@ if (!empty($_POST)) {
 
 <div class="content update">
     <h2>Add New Product</h2>
-    <?php if ($msg) : ?>
-        <p><?= $msg ?></p>
+    <?php if ($msg == "Product Added Successfully!") : ?>
+        <div class="alert success">
+            <span class="closebtn">&times;</span>
+            <p><?= $msg ?></p>
+        </div>
     <?php endif; ?>
+
+    <?php if ($msg == "Something went wrong, Please try again!") : ?>
+        <div class="alert danger">
+            <span class="closebtn">&times;</span>
+            <p><?= $msg ?></p>
+        </div>
+    <?php endif; ?>
+
     <form action="create.php" method="post">
         <label for="id">ID</label>
         <label for="name">Name</label>
@@ -72,5 +83,20 @@ if (!empty($_POST)) {
         <input type="submit" value="ADD">
     </form>
 </div>
+
+<script>
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function() {
+                div.style.display = "none";
+            }, 600);
+        }
+    }
+</script>
 
 <?= admin_template_footer() ?>
