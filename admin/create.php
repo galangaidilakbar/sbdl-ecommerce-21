@@ -26,16 +26,25 @@ if (!empty($_POST)) {
     $dataadded = isset($_POST['data_added']) ? $_POST['data_added'] : date('Y-m-d H:i:s');
     // Insert new record into the contacts table
     $stmt = $pdo->prepare('INSERT INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-    $stmt->execute([$id, $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
+
     // Output message
     $msg = 'Created Successfully!';
+
+    try {
+        $stmt->execute([$id, $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
+    } catch (\Throwable $e) {
+        $msg = 'Something went wrong';
+    }
 }
 ?>
 
-<?= admin_template_header('Insert New Product') ?>
+<?= admin_template_header('Add New Product') ?>
 
 <div class="content update">
-    <h2>Insert New Product</h2>
+    <h2>Add New Product</h2>
+    <?php if ($msg) : ?>
+        <p><?= $msg ?></p>
+    <?php endif; ?>
     <form action="create.php" method="post">
         <label for="id">ID</label>
         <label for="name">Name</label>
@@ -62,9 +71,6 @@ if (!empty($_POST)) {
         <input type="datetime-local" name="data_added" id="data_added">
         <input type="submit" value="ADD">
     </form>
-    <?php if ($msg) : ?>
-        <p><?= $msg ?></p>
-    <?php endif; ?>
 </div>
 
 <?= admin_template_footer() ?>
