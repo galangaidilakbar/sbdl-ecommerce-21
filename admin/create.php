@@ -33,7 +33,7 @@ if (!empty($_POST)) {
     try {
         $stmt->execute([$id, $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
     } catch (\Throwable $e) {
-        $msg = 'Something went wrong';
+        $msg = 'Something went wrong, Please try again!';
     }
 }
 ?>
