@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
             $msg = 'You have deleted the Products!';
         } else {
             // User clicked the "No" button, redirect them back to the read page
-            header('Location: read.php');
+            header('Location: index.php');
             exit;
         }
     }
