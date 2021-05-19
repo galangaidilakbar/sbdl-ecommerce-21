@@ -31,8 +31,8 @@ $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
 
 <div class="content read">
     <h2>Welcome, <?= $_SESSION['name'] ?>!</h2>
-    <a href="create.php" class="create-contact">Add New Products</a>
     <p><?= count_total_products() ?> Products</p>
+    <a href="create.php" class="create-contact">Add New Products</a>
     <table>
         <thead>
             <tr>
