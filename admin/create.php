@@ -49,26 +49,26 @@ if (!empty($_POST)) {
         <label for="id">ID</label>
         <label for="name">Name</label>
 
-        <input type="number" name="id" placeholder="Id Product" id="id">
-        <input type="text" name="name" placeholder="Product name" id="name">
+        <input type="number" name="id" placeholder="ID Product" id="id" required>
+        <input type="text" name="name" placeholder="Product name" id="name" required>
 
         <label for="desc">Description</label>
         <label for="img">Image</label>
 
         <input type="text" name="desc" id="desc">
-        <input type="file" name="img" id="img">
+        <input type="file" name="img" id="img" required>
 
         <label for="price">Price</label>
         <label for="rrp">RRP</label>
 
-        <input type="number" name="price" id="price">
+        <input type="number" name="price" id="price" required>
         <input type="number" name="rrp" id="rrp">
 
         <label for="quantity">Quantity</label>
         <label for="data">Data Added</label>
 
-        <input type="number" name="quantity" id="quantity">
-        <input type="datetime-local" name="data_added" id="data_added">
+        <input type="number" name="quantity" id="quantity" required>
+        <input type="datetime-local" name="data_added" id="data_added" required>
         <input type="submit" value="ADD">
     </form>
 </div>
