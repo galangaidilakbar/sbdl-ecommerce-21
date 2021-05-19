@@ -55,7 +55,7 @@ if (!empty($_POST)) {
         <label for="desc">Description</label>
         <label for="img">Image</label>
 
-        <input type="text" name="desc" id="desc">
+        <input type="text" name="desc" placeholder="A brief description about the product" id="desc">
         <input type="file" name="img" id="img" required>
 
         <label for="price">Price</label>
