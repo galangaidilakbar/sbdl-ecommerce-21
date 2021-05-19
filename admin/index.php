@@ -37,13 +37,12 @@ $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
             <tr>
                 <td>ID</td>
                 <td>Name</td>
-                <td>Desc</td>
                 <td>Price</td>
                 <td>rrp</td>
-                <td>quantity</td>
-                <td>img</td>
-                <td>date added</td>
-                <td></td>
+                <td>Quantity</td>
+                <td>Image</td>
+                <td>Date added</td>
+                <td>Actions</td>
             </tr>
         </thead>
         <tbody>
@@ -51,7 +50,6 @@ $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
                 <tr>
                     <td><?= $product['id'] ?></td>
                     <td><?= $product['name'] ?></td>
-                    <td><?= $product['desc'] ?></td>
                     <td><?= $product['price'] ?></td>
                     <td><?= $product['rrp'] ?></td>
                     <td><?= $product['quantity'] ?></td>
