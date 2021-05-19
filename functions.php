@@ -92,7 +92,7 @@ function admin_template_header($title)
                 <h1>Administration Panel</h1>
                 <nav>
                     <a href="index.php">Home</a>
-                    <a href="index.php?page=products">Products</a>
+                    <a href="create.php">Add New Product</a>
                 </nav>
                 <div class="link-icons">
                   <a href="../phplogin/logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
