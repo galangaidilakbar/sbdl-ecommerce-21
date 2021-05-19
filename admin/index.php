@@ -30,8 +30,9 @@ $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
 <?= admin_template_header('Administration Panel') ?>
 
 <div class="content read">
-    <h2>Read Products</h2>
-    <a href="create.php" class="create-contact">Create Products</a>
+    <h2>Welcome, <?= $_SESSION['name'] ?>!</h2>
+    <a href="create.php" class="create-contact">Add New Products</a>
+    <p><?= count_total_products() ?> Products</p>
     <table>
         <thead>
             <tr>

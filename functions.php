@@ -118,3 +118,9 @@ function admin_template_footer()
 </html>
 EOT;
 }
+
+function count_total_products()
+{
+  $pdo = pdo_connect_mysql();
+  return $total_products = $pdo->query('SELECT * FROM products')->rowCount();
+}
