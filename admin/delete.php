@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
     <?php else : ?>
         <p>Are you sure you want to delete products #<?= $products['id'] ?>?</p>
         <div class="yesno">
-            <a href="delete.php?id=<?= $products['id'] ?>&confirm=yes">Yes</a>
+            <a href="delete.php?id=<?= $products['id'] ?>&confirm=yes" style="background-color: #f44336; color: #FFFFFF;">Yes</a>
             <a href="delete.php?id=<?= $products['id'] ?>&confirm=no">No</a>
         </div>
     <?php endif; ?>
