@@ -48,5 +48,24 @@ END $$
 DELIMITER ;
 
 -- memanggil stored procedure`tampilkan_produk`
--- call tampilkan_produk(param);
+-- call tampilkan_produk(parameternya);
 -- drop procedure if exists `tampilkan_produk`;
+
+-- create stored procedure to insert data product
+DELIMITER $$
+CREATE PROCEDURE insert_new_product(
+	IN sp_id INT(11),
+	IN sp_name VARCHAR(200),
+	IN sp_desc TEXT,
+	IN sp_price DECIMAL(7,2),
+	IN sp_rrp DECIMAL(7,2),
+	IN sp_quantity INT(11),
+	IN sp_img TEXT,
+	IN sp_date_added DATETIME
+)
+BEGIN
+	INSERT INTO products VALUES (`sp_id`, `sp_name`, `sp_desc`, `sp_price`, `sp_rrp`, `sp_quantity`, `sp_img`, `sp_date_added`);
+END $$
+DELIMITER ;
+
+
