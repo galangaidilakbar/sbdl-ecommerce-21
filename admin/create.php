@@ -25,7 +25,7 @@ if (!empty($_POST)) {
     $img = isset($_POST['img']) ? $_POST['img'] : '';
     $dataadded = isset($_POST['data_added']) ? $_POST['data_added'] : date('Y-m-d H:i:s');
     // Insert new record into the contacts table
-    $stmt = $pdo->prepare('INSERT INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+    $stmt = $pdo->prepare('CALL insert_new_product(?, ?, ?, ?, ?, ?, ?, ?)');
 
     // Output message
     $msg = 'Product Added Successfully!';
