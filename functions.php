@@ -95,7 +95,7 @@ function admin_template_header($title)
                     <a href="create.php">Add New Product</a>
                 </nav>
                 <div class="link-icons">
-                  <a href="../phplogin/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  <a href="../phplogin/logout.php" onclick="return confirm('Are you sure to exit?')"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </div>
             </div>
         </header>
