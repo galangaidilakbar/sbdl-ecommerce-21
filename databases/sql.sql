@@ -34,5 +34,19 @@ INSERT INTO `accounts` (`username`, `password`, `email`) VALUES ('Galang', '$2y$
 CREATE VIEW recently_added AS
 SELECT `id`, `img`, `name`, `price`, `rrp` FROM products ORDER BY date_added DESC LIMIT 4;
 
+-- memanggil view --
 SELECT * FROM `recently_added`;
 
+-- create stored procedure to menampilkan produk
+DELIMITER $$
+CREATE PROCEDURE tampilkan_produk (sp_id INT(11))
+BEGIN 
+	SELECT `img`, `name`, `price`, `rrp`, `quantity`, `id`, `desc`
+	FROM `products`
+	WHERE `id` = `sp_id`;
+END $$
+DELIMITER ;
+
+-- memanggil stored procedure`tampilkan_produk`
+-- call tampilkan_produk(param);
+-- drop procedure if exists `tampilkan_produk`;
