@@ -2,7 +2,7 @@
 // Check to make sure the id parameter is specified in the URL
 if (isset($_GET['id'])) {
   // Prepare statement and execute, prevents SQL injection
-  $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
+  $stmt = $pdo->prepare('CALL tampilkan_produk(?)');
   $stmt->execute([$_GET['id']]);
   // Fetch the product from the database and return the result as an Array
   $product = $stmt->fetch(PDO::FETCH_ASSOC);
