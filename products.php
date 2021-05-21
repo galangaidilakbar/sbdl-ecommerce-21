@@ -11,8 +11,6 @@ $stmt->bindValue(2, $num_products_on_each_page, PDO::PARAM_INT);
 $stmt->execute();
 // Fetch the products from the database and return the result as an Array
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// Get the total number of products
-$total_products = $pdo->query('SELECT * FROM products')->rowCount();
 ?>
 <?= template_header('Products') ?>
 
@@ -37,7 +35,7 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
     <?php if ($current_page > 1) : ?>
       <a href="index.php?page=products&p=<?= $current_page - 1 ?>">Prev</a>
     <?php endif; ?>
-    <?php if ($total_products > ($current_page * $num_products_on_each_page) - $num_products_on_each_page + count($products)) : ?>
+    <?php if (count_total_products() > ($current_page * $num_products_on_each_page) - $num_products_on_each_page + count($products)) : ?>
       <a href="index.php?page=products&p=<?= $current_page + 1 ?>">Next</a>
     <?php endif; ?>
   </div>
