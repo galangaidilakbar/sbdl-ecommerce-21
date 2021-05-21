@@ -25,8 +25,14 @@ if (isset($_GET['id'])) {
         $dataadded = isset($_POST['data_added']) ? $_POST['data_added'] : date('Y-m-d H:i:s');
         // Update the record
         $stmt = $pdo->prepare('UPDATE `products` SET `name` = ?, `desc` = ?, `price` = ?, `rrp` = ?, `quantity` = ?, `img` = ?, `date_added` = ? WHERE `id` = ?');
-        $stmt->execute([$name, $desc, $price, $rrp, $quantity, $img, $dataadded, $_GET['id']]);
+
         $msg = 'Updated Successfully!';
+
+        try {
+            $stmt->execute([$name, $desc, $price, $rrp, $quantity, $img, $dataadded, $_GET['id']]);
+        } catch (\Throwable $e) {
+            $msg = "Unable to update product, please try again!";
+        }
     }
     // Get the products from the products table
     $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
@@ -44,6 +50,20 @@ if (isset($_GET['id'])) {
 
 <div class="content update">
     <h2>Update Product "<?= $products['name'] ?>"</h2>
+    <?php if ($msg == "Updated Successfully!") : ?>
+        <div class="alert success">
+            <span class="closebtn">&times;</span>
+            <p><?= $msg ?></p>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($msg == "Unable to update product, please try again!") : ?>
+        <div class="alert danger">
+            <span class="closebtn">&times;</span>
+            <p><?= $msg ?></p>
+        </div>
+    <?php endif; ?>
+
     <form action="update.php?id=<?= $products['id'] ?>" method="post">
         <label for="id">ID</label>
         <label for="name">Name</label>
@@ -70,9 +90,6 @@ if (isset($_GET['id'])) {
         <input type="datetime-local" name="data_added" value="<?= date('Y-m-d\TH:i', strtotime($products['date_added'])) ?>" id="data">
         <input type="submit" value="Update">
     </form>
-    <?php if ($msg) : ?>
-        <p><?= $msg ?></p>
-    <?php endif; ?>
 </div>
 
 <?= admin_template_footer() ?>
