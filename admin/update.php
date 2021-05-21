@@ -43,12 +43,12 @@ if (isset($_GET['id'])) {
 <?= admin_template_header('Update Product') ?>
 
 <div class="content update">
-    <h2>Update Products #<?= $products['id'] ?></h2>
+    <h2>Update Product "<?= $products['name'] ?>"</h2>
     <form action="update.php?id=<?= $products['id'] ?>" method="post">
         <label for="id">ID</label>
         <label for="name">Name</label>
 
-        <input type="number" name="id" value="<?= $products['id'] ?>" id="id">
+        <input type="number" name="id" value="<?= $products['id'] ?>" id="id" title="ID Product cannot be update" readonly>
         <input type="text" name="name" value="<?= $products['name'] ?>" id="name">
 
         <label for="desc">Description</label>
