@@ -68,4 +68,22 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- create trigger when admin insert new product
+CREATE TABLE IF NOT EXISTS `log_products`(
+	`id_` INT(11),
+	`name` VARCHAR(200),
+	`kejadian` DATETIME,
+	`keterangan` TEXT
+);
 
+DELIMITER $$
+CREATE TRIGGER log_new_products
+AFTER INSERT ON products
+FOR EACH ROW
+BEGIN
+	INSERT INTO `log_products` VALUES (NEW.id, NEW.name, NOW(), "Inserting new product");
+END $$
+DELIMITER ;
+
+
+SELECT * FROM log_products;
