@@ -28,3 +28,11 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 ) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `accounts` (`username`, `password`, `email`) VALUES ('Galang', '$2y$10$gfM5uiVqrq6yE/XUttuonuO2Z9prT6GoLzqMNpHLfXdteZj1BHqG2', 'galangaidil45@gmail.com');
+
+
+-- create view for select 4 the most recently added product
+CREATE VIEW recently_added AS
+SELECT `id`, `img`, `name`, `price`, `rrp` FROM products ORDER BY date_added DESC LIMIT 4;
+
+SELECT * FROM `recently_added`;
+
