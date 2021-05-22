@@ -41,7 +41,8 @@ function template_header($title)
                     
                 </nav>
                 <div class="link-icons">
-                <a href="phplogin/index.php">Login</a>
+                <a href="register/index.php">Register</a>
+                <a href="phplogin/index.php" style="background-color: #63748e; color: #FFFFFF; padding: 10px 15px; border-radius: 5px;">Login</a>
                     <a href="index.php?page=cart">
 						<i class="fas fa-shopping-cart"></i>
             <span>$num_items_in_cart</span>
