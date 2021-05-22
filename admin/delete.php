@@ -7,6 +7,11 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
+if ($_SESSION['role'] == 'costumer') {
+    header('Location: ../phplogin/index.php');
+    exit;
+}
+
 include '../functions.php';
 $pdo = pdo_connect_mysql();
 $msg = '';
