@@ -122,5 +122,11 @@ EOT;
 function count_total_products()
 {
   $pdo = pdo_connect_mysql();
-  return $total_products = $pdo->query('SELECT * FROM products')->rowCount();
+  // return $total_products = $pdo->query('SELECT * FROM products')->rowCount();
+  $stmt = $pdo->prepare('SELECT count_total_product()');
+  $stmt->execute();
+  $total_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($total_products as $key) {
+    return $key['count_total_product()'];
+  }
 }
