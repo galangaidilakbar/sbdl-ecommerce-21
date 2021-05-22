@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
     PRIMARY KEY (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `accounts` (`username`, `password`, `email`) VALUES ('Galang', '$2y$10$gfM5uiVqrq6yE/XUttuonuO2Z9prT6GoLzqMNpHLfXdteZj1BHqG2', 'galangaidil45@gmail.com');
+INSERT INTO `accounts` (`username`, `password`, `email`, `role`) VALUES ('fandi', '$2y$10$gfM5uiVqrq6yE/XUttuonuO2Z9prT6GoLzqMNpHLfXdteZj1BHqG2', 'galangaidil45@gmail.com', 'admin');
 
 
 -- create view for select 4 the most recently added product
@@ -102,3 +102,10 @@ END $$
 DELIMITER ;
 
 SELECT count_total_product();
+
+-- add column to table accounts
+
+ALTER TABLE accounts
+ADD `role` VARCHAR (100);
+
+SELECT * FROM accounts;
