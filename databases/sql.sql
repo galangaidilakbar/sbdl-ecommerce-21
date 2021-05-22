@@ -87,3 +87,18 @@ DELIMITER ;
 
 
 SELECT * FROM log_products;
+
+-- function untuk menghitung total produk
+
+DELIMITER $$
+CREATE FUNCTION count_total_product()
+RETURNS INT(11)
+DETERMINISTIC
+BEGIN
+	DECLARE total_product INT(11);
+	SELECT COUNT(id) INTO total_product FROM products;
+	RETURN total_product;
+END $$
+DELIMITER ;
+
+SELECT count_total_product();
