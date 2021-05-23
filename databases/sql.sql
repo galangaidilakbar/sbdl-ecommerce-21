@@ -132,8 +132,13 @@ ADD COLUMN `jumlah` INT(11);
 ALTER TABLE `orders`
 MODIFY `orderID` INT(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `orders`
+ADD COLUMN `total` DECIMAL(7,2) NOT NULL;
+
+DELETE FROM orders WHERE orderID = 5;
+
 -- menampilkan nama produk, nama costumer, jumlah, dan harga berdasarkan orderID
-SELECT products.`name`, accounts.`username`, `orders`.`jumlah`, products.`price`
+SELECT products.`name`, accounts.`username`, `orders`.`jumlah`, products.`price`, orders.`total`
 FROM `orders`
 INNER JOIN products ON orders.`productID` = `products`.`id`
 INNER JOIN accounts ON orders.`accountsID` = `accounts`.`id`;
