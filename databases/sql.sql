@@ -109,3 +109,31 @@ ALTER TABLE accounts
 ADD `role` VARCHAR (100);
 
 SELECT * FROM accounts;
+SELECT * FROM products;
+
+-- create table order 
+CREATE TABLE IF NOT EXISTS `orders`(
+	orderID INT(11),
+	productID INT(11),
+	accountsID INT(11),
+	date_created DATETIME,
+	PRIMARY KEY (orderID),
+	FOREIGN KEY (productID) REFERENCES products(id),
+	FOREIGN KEY (accountsID) REFERENCES accounts(id)
+);
+
+SELECT * FROM `orders`;
+
+INSERT INTO `orders` (productID, accountsID, date_created, jumlah)VALUES (3, 9, NOW(), 1);
+
+ALTER TABLE `orders`
+ADD COLUMN `jumlah` INT(11);
+
+ALTER TABLE `orders`
+MODIFY `orderID` INT(11) NOT NULL AUTO_INCREMENT;
+
+-- menampilkan nama produk, nama costumer, jumlah, dan harga berdasarkan orderID
+SELECT products.`name`, accounts.`username`, `orders`.`jumlah`, products.`price`
+FROM `orders`
+INNER JOIN products ON orders.`productID` = `products`.`id`
+INNER JOIN accounts ON orders.`accountsID` = `accounts`.`id`;
