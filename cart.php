@@ -56,6 +56,10 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
   $stmt = $pdo->prepare('INSERT INTO `orders` (`productID`, `accountsID`, `date_created`, `jumlah`, `total`) VALUES (?,?,?,?,?)');
 
+  if (empty($_SESSION['id'])) {
+    header('Location: register/index.php');
+    exit;
+  }
   $productID = $_POST['id'];
   $accountsID = $_SESSION['id'];
   $current_date_time = date("Y-m-d H:i:s");
