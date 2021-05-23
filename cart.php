@@ -54,6 +54,22 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 }
 // Send the user to the place order page if they click the Place Order button, also the cart should not be empty
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+  $stmt = $pdo->prepare('INSERT INTO `orders` (`productID`, `accountsID`, `date_created`, `jumlah`, `total`) VALUES (?,?,?,?,?)');
+
+  $productID = $_POST['id'];
+  $accountsID = $_SESSION['id'];
+  $current_date_time = date("Y-m-d H:i:s");
+  $jumlah = $_POST['jumlah'];
+  $total = $_POST['total'];
+
+  try {
+    $stmt->execute([$productID, $accountsID, $current_date_time, $jumlah, $total]);
+  } catch (\Throwable $e) {
+    echo "Someting went wrong happen <br>";
+    echo $e->getMessage();
+    exit;
+  }
+
   header('Location: index.php?page=placeorder');
   exit;
 }
@@ -115,6 +131,9 @@ if ($products_in_cart) {
               </td>
               <td class="price">&dollar;<?= $product['price'] * $products_in_cart[$product['id']] ?></td>
             </tr>
+            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+            <input type="hidden" name="jumlah" value="<?= $products_in_cart[$product['id']] ?>">
+            <input type="hidden" name="total" value="<?= $subtotal ?>">
           <?php endforeach; ?>
         <?php endif; ?>
       </tbody>
