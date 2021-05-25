@@ -20,6 +20,18 @@ if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['emai
 	// One or more values are empty.
 	exit('Please complete the registration form');
 }
+
+//Make sure the password lenght is 8 character
+if (strlen($_POST['password']) <= 8) {
+	exit('Your password must be have at least <br>
+		<ul>
+			<li>8 characters long</li>
+			<li>1 uppercase & 1 lowercase character</li>
+			<li>1 number</li>
+		</ul>
+	');
+}
+
 // We need to check if the account with that username exists.
 if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), hash the password using the PHP password_hash function.
