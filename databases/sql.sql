@@ -110,6 +110,8 @@ ADD `role` VARCHAR (100);
 
 SELECT * FROM accounts;
 SELECT * FROM products;
+SELECT * FROM log_products;
+SELECT * FROM orders;
 
 -- create table order 
 CREATE TABLE IF NOT EXISTS `orders`(
@@ -135,7 +137,7 @@ MODIFY `orderID` INT(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `orders`
 ADD COLUMN `total` DECIMAL(7,2) NOT NULL;
 
-DELETE FROM orders WHERE orderID = 5;
+DELETE FROM log_products;
 
 -- menampilkan nama produk, nama costumer, jumlah, dan harga berdasarkan orderID
 SELECT products.`name`, accounts.`username`, `orders`.`jumlah`, products.`price`, orders.`total`
