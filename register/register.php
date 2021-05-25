@@ -1,28 +1,24 @@
 <?php
-// Change this to your connection info.
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'shoppingcart';
-// Try and connect using the info above.
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+include '../phplogin/functions.php';
+$con = mysqli_connect_to_database();
+
 if (mysqli_connect_errno()) {
 	// If there is an error with the connection, stop the script and display the error.
 	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 // Now we check if the data was submitted, isset() function will check if the data exists.
-if (!isset($_POST['username'], $_POST['password'], $_POST['email'])) {
+if (!isset($_POST['username'], $_POST['password1'], $_POST['password2'], $_POST['email'])) {
 	// Could not get the data that should have been sent.
 	exit('Please complete the registration form!');
 }
 // Make sure the submitted registration values are not empty.
-if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
+if (empty($_POST['username']) || empty($_POST['password1']) || empty($_POST['password2']) || empty($_POST['email'])) {
 	// One or more values are empty.
 	exit('Please complete the registration form');
 }
 
 //Make sure the password lenght is 8 character
-if (strlen($_POST['password']) <= 8) {
+if (strlen($_POST['password1']) <= 8) {
 	exit('Your password must be have at least <br>
 		<ul>
 			<li>8 characters long</li>
@@ -30,6 +26,11 @@ if (strlen($_POST['password']) <= 8) {
 			<li>1 number</li>
 		</ul>
 	');
+}
+
+//Make sure password and confirm password are same
+if ($_POST['password1'] != $_POST['password2']) {
+	exit('Comfirm password are not same');
 }
 
 // We need to check if the account with that username exists.
