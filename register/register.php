@@ -47,7 +47,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 		// Username doesnt exists, insert new account
 		if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, role) VALUES (?, ?, ?, "costumer")')) {
 			// We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
-			$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			$password = password_hash($_POST['password1'], PASSWORD_DEFAULT);
 			$stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
 			$stmt->execute();
 			header('Location: ../phplogin/index.php');
