@@ -144,3 +144,15 @@ SELECT products.`name`, accounts.`username`, `orders`.`jumlah`, products.`price`
 FROM `orders`
 INNER JOIN products ON orders.`productID` = `products`.`id`
 INNER JOIN accounts ON orders.`accountsID` = `accounts`.`id`;
+
+-- add column verification code to accounts 
+ALTER TABLE accounts
+ADD COLUMN `code` INT(6);
+
+-- add column active ke accounts
+ALTER TABLE accounts
+ADD COLUMN `active` INT(1) NOT NULL DEFAULT 0;
+
+UPDATE `accounts` SET `active` = 1 WHERE `accounts`.`id` = 6;
+
+SELECT * FROM accounts;
