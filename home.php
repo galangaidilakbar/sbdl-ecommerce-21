@@ -1,10 +1,10 @@
 <?php
-// Get the 4 most recently added products
+// Get the 4 most recently added products using view recently_added
 $stmt = $pdo->prepare('SELECT * FROM `recently_added`');
 $stmt->execute();
 $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?= template_header('Home') ?>
+<?= template_header('Situs Jual Beli Gagdet No. 1 Di Indonesia') ?>
 
 <div class="featured">
   <h2>Gadgets</h2>

@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
   exit('Product does not exist!');
 }
 ?>
-<?= template_header('Product') ?>
+<?= template_header($product['name']) ?>
 
 <div class="product content-wrapper">
   <img src="imgs/<?= $product['img'] ?>" width="500" height="500" alt="<?= $product['name'] ?>">
