@@ -21,7 +21,12 @@ body {
     padding: 25px 0;
     font-size: 22px;
     border-bottom: 1px solid #ebebeb;
-    color: #666666;
+    color: #394352 !important;
+}
+
+.content p {
+    text-align: center !important;
+    text-transform: capitalize;
 }
 
 .read .create-contact {
@@ -65,14 +70,14 @@ body {
 }
 
 .read table thead {
-    background-color: #ebeef1;
+    background-color: #394352 !important;
     border-bottom: 1px solid #d3dae0;
 }
 
 .read table thead td {
     padding: 10px;
     font-weight: bold;
-    color: #767779;
+    color: #FFFFFF;
     font-size: 14px;
 }
 
