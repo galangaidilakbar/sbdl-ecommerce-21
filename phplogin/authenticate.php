@@ -30,14 +30,13 @@ if ($stmt = $con->prepare('SELECT id, password, role FROM accounts WHERE usernam
       $_SESSION['name'] = $_POST['username'];
       $_SESSION['id'] = $id;
       $_SESSION['role'] = $role;
-      var_dump($role);
-      var_dump($id);
+
       if ($role == 'admin') {
-        header('Location: ../admin/index.php');
+        header('Location: ../admin/.');
       }
 
       if ($role == 'costumer') {
-        header('Location: ../index.php');
+        header('Location: ../.');
       }
     } else {
       // Incorrect password
