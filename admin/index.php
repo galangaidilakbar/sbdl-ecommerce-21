@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: ../phplogin/index.php');
     exit;
 }
-
+// prevent user with role costumer to access this page
 if ($_SESSION['role'] == 'costumer') {
     header('Location: ../phplogin/index.php');
     exit;
@@ -32,10 +32,10 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
 ?>
 
-<?= admin_template_header('Administration Panel') ?>
+<?= admin_template_header('Administration | Gadgets Pedia') ?>
 
 <div class="content read">
-    <h2>Welcome, <?= $_SESSION['name'] ?>!</h2>
+    <h2 style="text-transform: capitalize;">Welcome, <?= $_SESSION['name'] ?>!</h2>
     <p><?= count_total_products() ?> products currently on sale</p>
     <table>
         <thead>
