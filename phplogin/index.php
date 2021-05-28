@@ -14,6 +14,9 @@ include 'functions.php';
 </head>
 
 <body>
+	<header>
+		<h1><a href="../">Gadgets Pedia</a></h1>
+	</header>
 	<div class="container">
 		<div class="login">
 			<h1>Login</h1>
