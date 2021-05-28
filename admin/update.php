@@ -112,4 +112,4 @@ if (isset($_GET['id'])) {
     }
 </script>
 
-<?= admin_template_footer() ?>
+<?= template_footer() ?>

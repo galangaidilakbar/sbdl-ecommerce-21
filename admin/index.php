@@ -80,4 +80,4 @@ $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
     </div>
 </div>
 
-<?= admin_template_footer() ?>
+<?= template_footer() ?>

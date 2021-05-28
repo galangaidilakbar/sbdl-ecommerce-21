@@ -53,4 +53,4 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </tbody>
   </table>
 </div>
-<?= admin_template_footer() ?>
+<?= template_footer() ?>

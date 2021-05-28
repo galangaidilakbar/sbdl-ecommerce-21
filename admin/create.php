@@ -104,4 +104,4 @@ if (!empty($_POST)) {
     }
 </script>
 
-<?= admin_template_footer() ?>
+<?= template_footer() ?>

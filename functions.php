@@ -13,10 +13,10 @@ function pdo_connect_mysql()
     exit('Failed to connect to database!');
   }
 }
-// Template header, feel free to customize this
+// Template header, this will showing to costumer
 function template_header($title)
 {
-  // Get the amount of items in the shopping cart, this will be displayed in the header.
+  // Get the amount of items in the shopping cart
   $num_items_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
   echo <<<EOT
 <!DOCTYPE html>
@@ -41,12 +41,12 @@ function template_header($title)
                     
                 </nav>
                 <div class="link-icons">
-                <a href="register/.">Register</a>
-                <a href="phplogin/." style="background-color: #63748e; color: #FFFFFF; padding: 10px 15px; border-radius: 5px;">Login</a>
-                    <a href="index.php?page=cart">
-						<i class="fas fa-shopping-cart"></i>
-            <span>$num_items_in_cart</span>
-					</a>
+                  <a href="register/.">Register</a>
+                  <a href="phplogin/." style="background-color: #63748e; color: #FFFFFF; padding: 10px 15px; border-radius: 5px;">Login</a>
+                  <a href="index.php?page=cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>$num_items_in_cart</span>
+                  </a>
                 </div>
             </div>
         </header>
@@ -90,7 +90,7 @@ function admin_template_header($title)
 	<body>
         <header>
             <div class="content-wrapper">
-                <h1>Administration Panel</h1>
+                <h1>Admin</h1>
                 <nav>
                     <a href="index.php">Home</a>
                     <a href="create.php">Add Product</a>
@@ -105,26 +105,10 @@ function admin_template_header($title)
 EOT;
 }
 
-function admin_template_footer()
-{
-  $year = date('Y');
-  echo <<<EOT
-        </main>
-        <footer>
-            <div class="content-wrapper">
-                <p>&copy; $year, Gadgets Pedia</p>
-            </div>
-        </footer>
-        <script src="script.js"></script>
-    </body>
-</html>
-EOT;
-}
-
+// this function return total products in database
 function count_total_products()
 {
   $pdo = pdo_connect_mysql();
-  // return $total_products = $pdo->query('SELECT * FROM products')->rowCount();
   $stmt = $pdo->prepare('SELECT count_total_product()');
   $stmt->execute();
   $total_products = $stmt->fetchAll(PDO::FETCH_ASSOC);

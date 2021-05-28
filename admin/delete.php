@@ -57,4 +57,4 @@ if (isset($_GET['id'])) {
     <?php endif; ?>
 </div>
 
-<?= admin_template_footer() ?>
+<?= template_footer() ?>
