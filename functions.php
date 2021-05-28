@@ -93,7 +93,8 @@ function admin_template_header($title)
                 <h1>Administration Panel</h1>
                 <nav>
                     <a href="index.php">Home</a>
-                    <a href="create.php">Add New Product</a>
+                    <a href="create.php">Add Product</a>
+                    <a href="orders.php">Orders</a>
                 </nav>
                 <div class="link-icons">
                   <a href="../phplogin/logout.php" onclick="return confirm('Are you sure to exit?')"><i class="fas fa-sign-out-alt"></i> Logout</a>
