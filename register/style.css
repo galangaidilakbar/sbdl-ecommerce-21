@@ -11,11 +11,20 @@ body {
 	margin: 0;
 }
 
+.container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+
 .register {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	width: 400px;
 	background-color: #ffffff;
 	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-	margin: 100px auto;
 }
 
 .register h1 {
@@ -24,6 +33,21 @@ body {
 	font-size: 24px;
 	padding: 20px 0 20px 0;
 	border-bottom: 1px solid #dee0e4;
+}
+
+.register p {
+	text-align: center;
+	color: #555555;
+}
+
+.register p a {
+	text-decoration: dotted;
+	color: #394352;
+}
+
+.register p a:hover {
+	color: #4e5c70;
+	border-bottom: 1px solid #aaa;
 }
 
 .register form {

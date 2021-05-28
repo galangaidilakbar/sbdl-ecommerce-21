@@ -13,29 +13,31 @@
 </head>
 
 <body>
-	<div class="register">
-		<h1>Register</h1>
-		<form action="register.php" method="post" autocomplete="off">
-			<label for="username">
-				<i class="fas fa-user"></i>
-			</label>
-			<input type="text" name="username" placeholder="Username" id="username" required>
-			<label for="email">
-				<i class="fas fa-envelope"></i>
-			</label>
-			<input type="email" name="email" placeholder="Email" id="email" required>
-			<label for="password">
-				<i class="fas fa-lock"></i>
-			</label>
-			<input type="password" name="password1" placeholder="Password" id="password1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-			<label for="password">
-				<i class="fas fa-lock"></i>
-			</label>
-			<input type="password" name="password2" placeholder="Confirm password" id="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must same with password above" required>
-			<input type="submit" value="Register">
-		</form>
+	<div class="container">
+		<div class="register">
+			<h1>Register</h1>
+			<p>Already have an account? <a href="../phplogin/.">Login</a></p>
+			<form action="register.php" method="post" autocomplete="off">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				<label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="email" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password1" placeholder="Password" id="password1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password2" placeholder="Confirm password" id="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must same with password above" required>
+				<input type="submit" value="Register">
+			</form>
+		</div>
 	</div>
-
 </body>
 
 </html>
