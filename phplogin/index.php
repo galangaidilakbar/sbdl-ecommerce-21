@@ -17,6 +17,7 @@ include 'functions.php';
 	<div class="container">
 		<div class="login">
 			<h1>Login</h1>
+			<p style="text-align: center; color: #555555; padding-top: 20px;">New in here? <a href="../register/." style="color: #333; text-decoration: none;">Register</a>
 			<form action="authenticate.php" method="post">
 				<label for="username">
 					<i class="fas fa-user"></i>
