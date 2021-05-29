@@ -163,3 +163,19 @@ SELECT products.`name`, accounts.`username`, `orders`.`jumlah`, products.`price`
 FROM `orders`
 INNER JOIN products ON orders.`productID` = `products`.`id`
 INNER JOIN accounts ON orders.`accountsID` = `accounts`.`id`;
+
+-- create procedure to search products;
+DELIMITER $$
+CREATE PROCEDURE search_product (
+	IN `nama_products` VARCHAR(200)
+)
+BEGIN
+	SELECT products.`id`, products.`img`, products.`name`, products.`price`, products.`rrp` FROM products WHERE `name` LIKE CONCAT("%", `nama_products`, "%");
+END $$
+DELIMITER ;
+
+-- drop the search_product
+DROP PROCEDURE IF EXISTS search_product;
+
+-- call it
+CALL search_product("Macbook");
