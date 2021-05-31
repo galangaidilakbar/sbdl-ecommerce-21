@@ -22,7 +22,7 @@
 	<div class="container">
 		<div class="register">
 			<h1>Register</h1>
-			<p>Already have an account? <a href="../phplogin/.">Login</a></p>
+			<p>Already have an account? <a href="../login/.">Login</a></p>
 			<form action="register.php" method="post" autocomplete="off">
 				<label for="username">
 					<i class="fas fa-user"></i>

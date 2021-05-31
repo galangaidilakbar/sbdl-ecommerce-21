@@ -3,12 +3,12 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-  header('Location: ../phplogin/index.php');
+  header('Location: ../login/index.php');
   exit;
 }
 
 if ($_SESSION['role'] == 'costumer') {
-  header('Location: ../phplogin/index.php');
+  header('Location: ../login/index.php');
   exit;
 }
 

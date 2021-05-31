@@ -42,7 +42,7 @@ function template_header($title)
                 </nav>
                 <div class="link-icons">
                   <a href="register/.">Register</a>
-                  <a href="phplogin/." style="background-color: #63748e; color: #FFFFFF; padding: 10px 15px; border-radius: 5px;">Login</a>
+                  <a href="login/." style="background-color: #63748e; color: #FFFFFF; padding: 10px 15px; border-radius: 5px;">Login</a>
                   <a href="index.php?page=cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span>$num_items_in_cart</span>
@@ -97,7 +97,7 @@ function admin_template_header($title)
                     <a href="orders.php">Orders</a>
                 </nav>
                 <div class="link-icons">
-                  <a href="../phplogin/logout.php" onclick="return confirm('Are you sure to exit?')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  <a href="../login/logout.php" onclick="return confirm('Are you sure to exit?')"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </div>
             </div>
         </header>
