@@ -36,42 +36,29 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ? 
 		create_alert_message('Username / Email has taken, Please choose another!');
 	} else {
 		// Username doesnt exists, insert new account
-		if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, role, code) VALUES (?, ?, ?, "costumer", ?)')) {
+		if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, role) VALUES (?, ?, ?, "costumer")')) {
 			// We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
-			$password = password_hash($_POST['password1'], PASSWORD_DEFAULT);
-			$verification_code = generate_code_verification();
-			$stmt->bind_param('sssi', $_POST['username'], $password, $_POST['email'], $verification_code);
+			// we want to prevent xss (Cross-side scripting attacks) by adding htmlspecialchars
+			$password = htmlspecialchars(password_hash($_POST['password1'], PASSWORD_DEFAULT));
+			$username = htmlspecialchars($_POST['username']);
+			$email = htmlspecialchars($_POST['email']);
+
+			$stmt->bind_param('sss', $username, $password, $email);
 			$stmt->execute();
-			send_verification_email($_POST['email'], $verification_code);
-			header('Location: auth.php');
+			header('Location: ../phplogin/.');
 		} else {
 			// Something is wrong with the sql statement, check to make sure accounts table exists with all 3 fields.
-			echo 'Could not prepare statement!';
+			create_alert_message('Could not prepare statement!');
 		}
 	}
 	$stmt->close();
 } else {
 	// Something is wrong with the sql statement, check to make sure accounts table exists with all 3 fields.
-	echo 'Could not prepare statement!';
+	create_alert_message('Could not prepare statement!');
 }
 $con->close();
 
-function generate_code_verification()
-{
-	return random_int(100000, 999999);
-}
-
-function send_verification_email($email, $code)
-{
-	$to = $email;
-	$subject = 'Verification Code | Gadget Pedia';
-	$message = '
-	Your verification code is : ' . $code . 'valid until 15 mins';
-
-	$headers = 'From: galangaidil45@gmail.com' . "\r\n";
-	return mail($to, $subject, $message, $headers);
-}
-
+// create an alert (javascript capabilities) to function in php then return in to index
 function create_alert_message($message)
 {
 	echo "<script>
