@@ -36,9 +36,13 @@ function template_header($title)
             <div class="content-wrapper">
                 <h1><a href=".">Gadgets Pedia</a></h1>
                 <nav>
-                    <a href="index.php?page=products">Products</a>
+                  <!-- <form action="index.php?page=products" method="GET">
+                    <input type="text" name="q" placeholder="Search products...">
+                    <input type="submit" value="search">
+                  </form> -->
                 </nav>
                 <div class="link-icons">
+                  <a href="index.php?page=products">Products</a>
                   <a href="register/.">Register</a>
                   <a href="login/." class="btn-login">Login</a>
                   <a href="index.php?page=cart">
