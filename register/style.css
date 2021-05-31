@@ -9,10 +9,15 @@
 
 :root {
 	--linkHover: #20c997;
+	--black: #222831;
+	--white: #fff;
+	--dotted: #393e46;
+	--muted: #8785a2;
+	--border: #dee0e4;
 }
 
 body {
-	background-color: #ffffff;
+	background-color: var(--white);
 	margin: 0;
 }
 
@@ -26,13 +31,14 @@ header h1 {
 }
 
 header h1 a {
-	color: #555555;
+	color: var(--black);
 	font-size: 1.75rem;
 	text-decoration: none;
 }
 
 header h1 a:hover {
-	border-bottom: 1px solid #dee0e4;
+	color: var(--linkHover);
+	border-bottom: 1px dotted var(--dotted);
 }
 
 .container {
@@ -48,33 +54,34 @@ header h1 a:hover {
 	transform: translate(-50%, -50%);
 	width: 400px;
 	min-height: 500px;
-	background-color: #ffffff;
+	background-color: var(--white);
 	border-radius: 8px;
-	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .register h1 {
 	text-align: center;
-	color: #5b6574;
+	color: var(--black);
 	font-size: 24px;
 	padding: 20px 0 20px 0;
-	border-bottom: 1px solid #dee0e4;
+	border-bottom: 1px solid var(--border);
 }
 
 .register p {
 	padding-top: 20px;
 	text-align: center;
-	color: #555555;
+	color: var(--muted);
 }
 
 .register p a {
-	color: #333;
+	font-weight: 500;
+	color: var(--black);
 	text-decoration: none;
 }
 
 .register p a:hover {
 	color: var(--linkHover);
-	border-bottom: 1px solid #aaa;
+	border-bottom: 1px dotted var(--dotted);
 }
 
 .register form {
@@ -90,8 +97,9 @@ header h1 a:hover {
 	align-items: center;
 	width: 50px;
 	height: 50px;
-	background-color: #555555;
-	color: #ffffff;
+	background-color: var(--black);
+	color: var(--white);
+	border-radius: 8px 0 0 8px;
 }
 
 .register form input[type="password"],
@@ -99,8 +107,8 @@ header h1 a:hover {
 .register form input[type="email"] {
 	width: 310px;
 	height: 50px;
-	border-radius: 8px;
-	border: 1px solid #dee0e4;
+	border-radius: 0 8px 8px 0;
+	border: 1px solid var(--border);
 	margin-bottom: 20px;
 	padding: 0 15px;
 }
@@ -110,16 +118,24 @@ header h1 a:hover {
 	height: 50px;
 	padding: 15px;
 	margin-top: 20px;
-	background-color: #555555;
+	background-color: var(--black);
 	border: 0;
 	cursor: pointer;
 	font-weight: bold;
-	color: #ffffff;
+	color: var(--white);
 	border-radius: 8px;
 	transition: background-color 0.2s;
 }
 
 .register form input[type="submit"]:hover {
-	background-color: #3a3a3a;
+	background-color: var(--linkHover);
 	transition: background-color 0.2s;
+}
+
+.register form input[type="text"]:focus,
+.register form input[type="email"]:focus,
+.register form input[type="password"]:focus {
+	outline: none !important;
+	border: 1px solid var(--linkHover);
+	box-shadow: 0 0 10px var(--linkHover);
 }
