@@ -8,8 +8,12 @@
 }
 
 :root {
-  --black: #555555;
-  --white: #FFFFFF;
+  --linkHover: #20c997;
+  --black: #222831;
+  --white: #fff;
+  --dotted: #393e46;
+  --muted: #8785a2;
+  --border: #dee0e4;
 }
 
 body {
@@ -32,7 +36,8 @@ header h1 a {
 }
 
 header h1 a:hover {
-  border-bottom: 1px solid #dee0e4;
+  color: var(--linkHover);
+  border-bottom: 1px dotted var(--dotted);
 }
 
 .container {
@@ -48,22 +53,35 @@ header h1 a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  min-height: 400px;
+  min-height: 370px;
   border-radius: 8px;
   background-color: var(--white);
-  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .login h1 {
   text-align: center;
-  color: #5b6574;
+  color: var(--black);
   font-size: 24px;
   padding: 20px 0 20px 0;
-  border-bottom: 1px solid #dee0e4;
+  border-bottom: 1px solid var(--border);
+}
+
+.login p {
+  padding-top: 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.login p a {
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
 }
 
 .login p a:hover {
-  border-bottom: 1px solid #dee0e4;
+  color: var(--linkHover);
+  border-bottom: 1px dotted var(--dotted);
 }
 
 .login form {
@@ -81,14 +99,15 @@ header h1 a:hover {
   height: 50px;
   background-color: var(--black);
   color: var(--white);
+  border-radius: 8px 0 0 8px;
 }
 
 .login form input[type="password"],
 .login form input[type="text"] {
   width: 310px;
   height: 50px;
-  border: 1px solid #dee0e4;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: 0 8px 8px 0;
   margin-bottom: 20px;
   padding: 0 15px;
 }
@@ -108,92 +127,13 @@ header h1 a:hover {
 }
 
 .login form input[type="submit"]:hover {
-  background-color: #3a3a3a;
+  background-color: var(--linkHover);
   transition: background-color 0.2s;
 }
 
-.navtop {
-  background-color: #2f3947;
-  height: 60px;
-  width: 100%;
-  border: 0;
-}
-
-.navtop div {
-  display: flex;
-  margin: 0 auto;
-  width: 1000px;
-  height: 100%;
-}
-
-.navtop div h1,
-.navtop div a {
-  display: inline-flex;
-  align-items: center;
-}
-
-.navtop div h1 {
-  flex: 1;
-  font-size: 24px;
-  padding: 0;
-  margin: 0;
-  color: #eaebed;
-  font-weight: normal;
-}
-
-.navtop div a {
-  padding: 0 20px;
-  text-decoration: none;
-  color: #c1c4c8;
-  font-weight: bold;
-}
-
-.navtop div a i {
-  padding: 2px 8px 0 0;
-}
-
-.navtop div a:hover {
-  color: #eaebed;
-}
-
-body.loggedin {
-  background-color: #f3f4f7;
-}
-
-.content {
-  width: 1000px;
-  margin: 0 auto;
-}
-
-.content h2 {
-  margin: 0;
-  padding: 25px 0;
-  font-size: 22px;
-  border-bottom: 1px solid #e0e0e3;
-  color: #4a536e;
-}
-
-.content>p,
-.content>div {
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-  margin: 25px 0;
-  padding: 25px;
-  background-color: #fff;
-}
-
-.content>p table td,
-.content>div table td {
-  padding: 5px;
-}
-
-.content>p table td:first-child,
-.content>div table td:first-child {
-  font-weight: bold;
-  color: #4a536e;
-  padding-right: 15px;
-}
-
-.content>div p {
-  padding: 5px;
-  margin: 0 0 10px 0;
+.login form input[type="text"]:focus,
+.login form input[type="password"]:focus {
+  outline: none !important;
+  border: 1px solid var(--linkHover);
+  box-shadow: 0 0 10px var(--linkHover);
 }
