@@ -6,6 +6,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --linkHover: #20c997;
+  --black: #222831;
+  --white: #fff;
+  --dotted: #393e46;
+  --muted: #8785a2;
+  --border: #dee0e4;
+  --btnHover: #4DD4AC;
+  --redNotif: #dc3545;
+
+  /* Def conf */
+  --defcolor: #555555;
+  --defHeading: #394352;
+  --defborder: #EEEEEE;
+  --defLinkHover: #aaa;
+  --defButton: #63748e;
+}
+
 html {
   height: 100%;
 }
@@ -13,8 +31,8 @@ html {
 body {
   position: relative;
   min-height: 100%;
-  color: #555555;
-  background-color: #FFFFFF;
+  color: var(--black);
+  background-color: var(--white);
   margin: 0;
   padding-bottom: 100px;
   /* Same height as footer */
@@ -25,7 +43,7 @@ h2,
 h3,
 h4,
 h5 {
-  color: #394352;
+  color: var(--black);
 }
 
 .content-wrapper {
@@ -34,7 +52,7 @@ h5 {
 }
 
 header {
-  border-bottom: 1px solid #EEEEEE;
+  border-bottom: 1px solid var(--border);
 }
 
 header .content-wrapper {
@@ -45,9 +63,18 @@ header h1 {
   display: flex;
   flex-grow: 1;
   flex-basis: 0;
-  font-size: 20px;
   margin: 0;
   padding: 24px 0;
+}
+
+header h1 a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+header h1 a:hover {
+  color: var(--linkHover);
 }
 
 header nav {
@@ -60,13 +87,14 @@ header nav {
 
 header nav a {
   text-decoration: none;
-  color: #555555;
+  color: var(--black);
   padding: 10px 10px;
   margin: 0 10px;
 }
 
 header nav a:hover {
-  border-bottom: 1px solid #aaa;
+  color: var(--linkHover);
+  border-bottom: 1px dotted var(--border);
 }
 
 header .link-icons {
@@ -80,12 +108,26 @@ header .link-icons {
 
 header .link-icons a {
   text-decoration: none;
-  color: #394352;
+  color: var(--black);
   padding: 0 10px;
 }
 
 header .link-icons a:hover {
-  color: #4e5c70;
+  color: var(--linkHover);
+}
+
+header .link-icons .btn-login {
+  background-color: var(--linkHover);
+  color: var(--white);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+header .link-icons .btn-login:hover {
+  background-color: var(--btnHover);
+  color: var(--white);
+  transition: background-color 0.2s;
 }
 
 header .link-icons a i {
@@ -95,9 +137,9 @@ header .link-icons a i {
 header .link-icons a span {
   display: inline-block;
   text-align: center;
-  background-color: #63748e;
+  background-color: var(--redNotif);
   border-radius: 50%;
-  color: #FFFFFF;
+  color: var(--white);
   font-size: 12px;
   line-height: 16px;
   width: 16px;
@@ -111,7 +153,7 @@ header .link-icons a span {
 main .featured {
   display: flex;
   flex-direction: column;
-  background-image: url(imgs/gadgets-336635_1920.jpg);
+  background-image: url(imgs/featured-image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;

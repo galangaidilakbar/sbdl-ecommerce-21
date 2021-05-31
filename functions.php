@@ -34,15 +34,13 @@ function template_header($title)
 	<body>
         <header>
             <div class="content-wrapper">
-                <h1>Gadgets Pedia</h1>
+                <h1><a href=".">Gadgets Pedia</a></h1>
                 <nav>
-                    <a href="index.php">Home</a>
                     <a href="index.php?page=products">Products</a>
-                    
                 </nav>
                 <div class="link-icons">
                   <a href="register/.">Register</a>
-                  <a href="login/." style="background-color: #63748e; color: #FFFFFF; padding: 10px 15px; border-radius: 5px;">Login</a>
+                  <a href="login/." class="btn-login">Login</a>
                   <a href="index.php?page=cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span>$num_items_in_cart</span>
