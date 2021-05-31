@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Register</title>
+	<title>Register | Gadgets Pedia</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	<link href="style.css" rel="stylesheet" type="text/css">
 	<link rel="apple-touch-icon" sizes="180x180" href="../imgs/icon/apple-touch-icon.png">
@@ -13,6 +13,9 @@
 </head>
 
 <body>
+	<header>
+		<h1><a href="../">Gadgets Pedia</a></h1>
+	</header>
 	<div class="container">
 		<div class="register">
 			<h1>Register</h1>

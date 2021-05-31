@@ -4,11 +4,35 @@
 	font-size: 16px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	margin: 0;
+}
+
+:root {
+	--linkHover: #20c997;
 }
 
 body {
 	background-color: #ffffff;
 	margin: 0;
+}
+
+header {
+	width: 100%;
+}
+
+header h1 {
+	padding-top: 20px;
+	text-align: center;
+}
+
+header h1 a {
+	color: #555555;
+	font-size: 1.75rem;
+	text-decoration: none;
+}
+
+header h1 a:hover {
+	border-bottom: 1px solid #dee0e4;
 }
 
 .container {
@@ -23,8 +47,10 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 400px;
+	min-height: 500px;
 	background-color: #ffffff;
-	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
+	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.2);
 }
 
 .register h1 {
@@ -36,17 +62,18 @@ body {
 }
 
 .register p {
+	padding-top: 20px;
 	text-align: center;
 	color: #555555;
 }
 
 .register p a {
-	text-decoration: dotted;
-	color: #394352;
+	color: #333;
+	text-decoration: none;
 }
 
 .register p a:hover {
-	color: #4e5c70;
+	color: var(--linkHover);
 	border-bottom: 1px solid #aaa;
 }
 
@@ -72,13 +99,15 @@ body {
 .register form input[type="email"] {
 	width: 310px;
 	height: 50px;
+	border-radius: 8px;
 	border: 1px solid #dee0e4;
 	margin-bottom: 20px;
 	padding: 0 15px;
 }
 
 .register form input[type="submit"] {
-	width: 100%;
+	width: 360px;
+	height: 50px;
 	padding: 15px;
 	margin-top: 20px;
 	background-color: #555555;
@@ -86,6 +115,7 @@ body {
 	cursor: pointer;
 	font-weight: bold;
 	color: #ffffff;
+	border-radius: 8px;
 	transition: background-color 0.2s;
 }
 
