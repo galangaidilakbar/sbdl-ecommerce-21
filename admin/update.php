@@ -4,12 +4,12 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../login/index.php');
+    header('Location: ../login/.');
     exit;
 }
 
 if ($_SESSION['role'] == 'costumer') {
-    header('Location: ../login/index.php');
+    header('Location: ../login/.');
     exit;
 }
 
@@ -29,12 +29,12 @@ if (isset($_GET['id'])) {
         $img = isset($_POST['img']) ? $_POST['img'] : '';
         $dataadded = isset($_POST['data_added']) ? $_POST['data_added'] : date('Y-m-d H:i:s');
         // Update the record
-        $stmt = $pdo->prepare('UPDATE `products` SET `name` = ?, `desc` = ?, `price` = ?, `rrp` = ?, `quantity` = ?, `img` = ?, `date_added` = ? WHERE `id` = ?');
+        $stmt = $pdo->prepare('CALL update_product(?,?,?,?,?,?,?,?)');
 
         $msg = 'Updated Successfully!';
 
         try {
-            $stmt->execute([$name, $desc, $price, $rrp, $quantity, $img, $dataadded, $_GET['id']]);
+            $stmt->execute([$_GET['id'], $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
         } catch (\Throwable $e) {
             $msg = "Unable to update product, please try again!";
         }
