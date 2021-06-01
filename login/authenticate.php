@@ -7,7 +7,7 @@ $con = mysqli_connect_to_database();
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
 if (!isset($_POST['username'], $_POST['password'])) {
   // Could not get the data that should have been sent.
-  exit('Please fill both the username and password fields!');
+  create_alert_message('Please fill both the username and password fields!');
 }
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
 if ($stmt = $con->prepare('SELECT id, password, role FROM accounts WHERE username = ?')) {
@@ -40,11 +40,11 @@ if ($stmt = $con->prepare('SELECT id, password, role FROM accounts WHERE usernam
       }
     } else {
       // Incorrect password
-      echo 'Incorrect username and/or password!';
+      create_alert_message('Incorrect password!');
     }
   } else {
     // Incorrect username
-    echo 'Incorrect username and/or password!';
+    create_alert_message('Incorrect username!');
   }
 
   $stmt->close();
