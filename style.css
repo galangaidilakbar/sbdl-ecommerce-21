@@ -436,8 +436,8 @@ main .cart .buttons input[type="submit"] {
   margin-left: 5px;
   padding: 12px 20px;
   border: 0;
-  background: #4e5c70;
-  color: #FFFFFF;
+  background: var(--black);
+  color: var(--white);
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
@@ -445,7 +445,7 @@ main .cart .buttons input[type="submit"] {
 }
 
 main .cart .buttons input[type="submit"]:hover {
-  background: #434f61;
+  background: var(--linkHover);
 }
 
 main .placeorder h1 {
