@@ -117,7 +117,7 @@ header .link-icons a:hover {
 }
 
 header .link-icons .btn-login {
-  background-color: var(--linkHover);
+  background-color: var(--black);
   color: var(--white);
   padding: 10px 15px;
   border-radius: 8px;
@@ -153,10 +153,10 @@ header .link-icons a span {
 main .featured {
   display: flex;
   flex-direction: column;
-  background-image: url(imgs/featured-image.jpg);
+  background-image: url(imgs/computer-823613_1920.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 650px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -168,7 +168,7 @@ main .featured h2 {
   width: 1050px;
   font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
   font-size: 68px;
-  color: #FFFFFF;
+  color: var(--black);
   padding-bottom: 10px;
 }
 
@@ -177,7 +177,7 @@ main .featured p {
   margin: 0;
   width: 1050px;
   font-size: 24px;
-  color: #FFFFFF;
+  color: var(--black);
 }
 
 main .recentlyadded h2 {
@@ -188,7 +188,7 @@ main .recentlyadded h2 {
   font-size: 24px;
   text-align: center;
   width: 100%;
-  border-bottom: 1px solid #EEEEEE;
+  border-bottom: 1px solid var(--border);
 }
 
 main .recentlyadded .products,
@@ -218,7 +218,7 @@ main .products .products-wrapper .product img {
 main .recentlyadded .products .product .name,
 main .products .products-wrapper .product .name {
   display: block;
-  color: #555555;
+  color: var(--black);
   padding: 20px 0 2px 0;
 }
 
@@ -242,6 +242,7 @@ main .products .products-wrapper .product:hover img {
 
 main .recentlyadded .products .product:hover .name,
 main .products .products-wrapper .product:hover .name {
+  color: var(--linkHover);
   text-decoration: underline;
 }
 
@@ -289,21 +290,29 @@ main>.product form input[type="number"] {
   border-radius: 5px;
 }
 
+main>.product form input[type="number"]:focus {
+  outline: none !important;
+  border: 1px solid var(--linkHover);
+  box-shadow: 0 0 10px var(--linkHover);
+}
+
 main>.product form input[type="submit"] {
-  background: #4e5c70;
+  background: var(--black);
   border: 0;
-  color: #FFFFFF;
+  color: var(--white);
   width: 400px;
   padding: 12px 0;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 main>.product form input[type="submit"]:hover {
-  background: #434f61;
+  background-color: var(--linkHover);
+  transition: background-color 0.2s;
 }
 
 main>.products h1 {
