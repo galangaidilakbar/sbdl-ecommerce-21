@@ -94,7 +94,7 @@ function admin_template_header($title)
             <div class="content-wrapper">
                 <h1>Admin</h1>
                 <nav>
-                    <a href="index.php">Home</a>
+                    <a href=".">Home</a>
                     <a href="create.php">Add Product</a>
                     <a href="orders.php">Orders</a>
                 </nav>

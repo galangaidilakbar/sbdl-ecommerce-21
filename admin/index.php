@@ -3,12 +3,12 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../login/index.php');
+    header('Location: ../login/.');
     exit;
 }
 // prevent user with role costumer to access this page
 if ($_SESSION['role'] == 'costumer') {
-    header('Location: ../login/index.php');
+    header('Location: ../.');
     exit;
 }
 

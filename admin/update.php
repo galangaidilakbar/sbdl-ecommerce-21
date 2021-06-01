@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin'])) {
 }
 
 if ($_SESSION['role'] == 'costumer') {
-    header('Location: ../login/.');
+    header('Location: ../.');
     exit;
 }
 
