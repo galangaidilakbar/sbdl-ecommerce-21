@@ -22,6 +22,8 @@
   --defborder: #EEEEEE;
   --defLinkHover: #aaa;
   --defButton: #63748e;
+  --defPagination: #4e5c70;
+  --defPaginationHover: #434f61;
 }
 
 html {
@@ -336,15 +338,15 @@ main>.products .buttons a {
   margin-left: 5px;
   padding: 12px 20px;
   border: 0;
-  background: #4e5c70;
-  color: #FFFFFF;
+  background: var(--black);
+  color: var(--white);
   font-size: 14px;
   font-weight: bold;
   border-radius: 5px;
 }
 
 main>.products .buttons a:hover {
-  background: #434f61;
+  background: var(--linkHover);
 }
 
 main .cart h1 {
