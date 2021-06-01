@@ -107,6 +107,25 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- create stored procedure to update products
+-- this stored procedure will we use in admin/update.php
+DELIMITER $$
+CREATE PROCEDURE update_product(
+	IN sp_id INT(11),
+	IN sp_name VARCHAR(200),
+	IN sp_desc TEXT,
+	IN sp_price DECIMAL(7,2),
+	IN sp_rrp DECIMAL(7,2),
+	IN sp_quantity INT(11),
+	IN sp_img TEXT,
+	IN sp_date_added DATETIME
+)
+BEGIN
+	UPDATE products SET `name`=`sp_name`, `desc`=`sp_desc`, `price`=`sp_price`, `rrp`=`sp_rrp`, 
+	`quantity`=`sp_quantity`, `img`=`sp_img`, `date_added`=`sp_date_added` WHERE `id`=`sp_id`;
+END $$
+DELIMITER ;
+
 -- create procedure to search products;
 -- this store procedure will we use in function : template_header()
 DELIMITER $$
