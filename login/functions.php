@@ -24,3 +24,14 @@ function mysqli_connect_to_database()
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
   }
 }
+
+// create an alert (javascript capabilities) to function in php then return in to index
+function create_alert_message($message)
+{
+  echo "<script>
+					alert('$message');
+					document.location.href = '.';
+        </script>
+        ";
+  exit();
+}

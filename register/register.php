@@ -57,14 +57,3 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ? 
 	create_alert_message('Could not prepare statement!');
 }
 $con->close();
-
-// create an alert (javascript capabilities) to function in php then return in to index
-function create_alert_message($message)
-{
-	echo "<script>
-					alert('$message');
-					document.location.href = '.';
-        </script>
-        ";
-	exit();
-}
