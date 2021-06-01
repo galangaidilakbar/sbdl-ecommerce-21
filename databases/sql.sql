@@ -143,6 +143,16 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- create trigger when admin delete the product
+DELIMITER $$
+CREATE TRIGGER log_delete_products
+AFTER DELETE ON products
+FOR EACH ROW
+BEGIN
+	INSERT INTO `log_products` VALUES (OLD.id, OLD.name, SYSDATE(), "Deleting product");
+END $$
+DELIMITER ;
+
 -- function to count total product
 -- this function will we use in functions.php in root, products.php, admin/index.php
 DELIMITER $$
@@ -203,5 +213,3 @@ SELECT count_total_product();
 
 -- see data that admin inserting into table products in table log_products
 SELECT * FROM log_products;
-
--- next we will create trigger when admin delete the products
