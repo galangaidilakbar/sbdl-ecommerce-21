@@ -48,6 +48,23 @@ CREATE TABLE IF NOT EXISTS `orders`(
 	FOREIGN KEY (accountsID) REFERENCES accounts(id)
 );
 
+-- create table `log_update_products`
+-- this table use to see what product that admin updates
+CREATE TABLE IF NOT EXISTS `log_update_products`(
+	`id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`productID` INT(11) NOT NULL, 
+	`oldName` VARCHAR(200) NOT NULL,
+	`newName` VARCHAR(200) NOT NULL,
+	`oldPrice` DECIMAL(7,2) NOT NULL,
+  `newPrice` DECIMAL(7,2) NOT NULL,
+	`oldQuantity` INT(11) NOT NULL,
+  `newQuantity` INT(11) NOT NULL,
+	`oldImg` TEXT NOT NULL,
+	`newImg` TEXT NOT NULL,
+	`changeAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
 -- create view for select 4 the most recently added product
 -- this view will we use in home.php
 CREATE VIEW recently_added AS
@@ -112,6 +129,20 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- create trigger after admin update product
+-- the trigger bases on price
+DELIMITER $$
+CREATE TRIGGER update_product
+AFTER UPDATE ON products
+FOR EACH ROW
+BEGIN
+	IF OLD.price <> NEW.price THEN
+	INSERT INTO `log_update_products`(productID, oldName, newName, oldPrice, newPrice, oldQuantity, newQuantity, oldImg, newImg)
+	VALUES (old.id, old.name, new.name, old.price, new.price, old.quantity, new.quantity, old.img, new.img);
+	END IF;
+END $$
+DELIMITER ;
+
 -- function to count total product
 -- this function will we use in functions.php in root, products.php, admin/index.php
 DELIMITER $$
@@ -150,6 +181,9 @@ CALL tampilkan_produk(parameter);
 -- ? = param
 CALL insert_new_product(?,?,?,?,?,?,?,?);
 
+-- how to see log update product
+SELECT * FROM log_update_products;
+
 -- how to call the stored procedure search_product
 CALL search_product("Macbook");
 
@@ -170,4 +204,4 @@ SELECT count_total_product();
 -- see data that admin inserting into table products in table log_products
 SELECT * FROM log_products;
 
--- next we will create trigger when admin update, and delete the products in table log_products
+-- next we will create trigger when admin delete the products
