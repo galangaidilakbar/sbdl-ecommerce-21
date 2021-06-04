@@ -12,7 +12,12 @@ $stmt->execute();
 // Fetch the products from the database and return the result as an Array
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?= template_header('Products') ?>
+
+<?php if (isset($_SESSION['loggedin'])) : ?>
+  <?= costumer_template_header('Products', $_SESSION['name']) ?>
+<?php else : ?>
+  <?= template_header('Products') ?>
+<?php endif; ?>
 
 <div class="products content-wrapper">
   <h1>Products</h1>

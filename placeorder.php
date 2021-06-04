@@ -1,4 +1,8 @@
-<?= template_header('Place Order') ?>
+<?php if (isset($_SESSION['loggedin'])) : ?>
+  <?= costumer_template_header('Place Order', $_SESSION['name']) ?>
+<?php else : ?>
+  <?= template_header('Place Order') ?>
+<?php endif; ?>
 
 <div class="placeorder content-wrapper">
   <h1>Your Order Has Been Placed</h1>

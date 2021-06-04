@@ -4,7 +4,12 @@ $stmt = $pdo->prepare('SELECT * FROM `recently_added`');
 $stmt->execute();
 $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?= template_header('Situs Jual Beli Gagdet No. 1 Di Indonesia') ?>
+
+<?php if (isset($_SESSION['loggedin'])) : ?>
+  <?= costumer_template_header('Situs Jual Beli Gagdet No. 1 Di Indonesia', $_SESSION['name']) ?>
+<?php else : ?>
+  <?= template_header('Situs Jual Beli Gagdet No. 1 Di Indonesia') ?>
+<?php endif; ?>
 
 <div class="featured">
   <h2>Gadgets</h2>

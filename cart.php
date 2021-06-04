@@ -97,7 +97,12 @@ if ($products_in_cart) {
   }
 }
 ?>
-<?= template_header('Cart') ?>
+
+<?php if (isset($_SESSION['loggedin'])) : ?>
+  <?= costumer_template_header('Cart', $_SESSION['name']) ?>
+<?php else : ?>
+  <?= template_header('Cart') ?>
+<?php endif; ?>
 
 <div class="cart content-wrapper">
   <h1>Shopping Cart</h1>

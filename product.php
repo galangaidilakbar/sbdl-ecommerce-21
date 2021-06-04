@@ -16,7 +16,11 @@ if (isset($_GET['id'])) {
   exit('Product does not exist!');
 }
 ?>
-<?= template_header($product['name']) ?>
+<?php if (isset($_SESSION['loggedin'])) : ?>
+  <?= costumer_template_header($product['name'], $_SESSION['name']) ?>
+<?php else : ?>
+  <?= template_header($product['name']) ?>
+<?php endif; ?>
 
 <div class="product content-wrapper">
   <img src="imgs/<?= $product['img'] ?>" width="500" height="500" alt="<?= $product['name'] ?>">
