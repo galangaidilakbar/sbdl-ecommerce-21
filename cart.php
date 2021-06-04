@@ -57,7 +57,7 @@ if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION[
   $stmt = $pdo->prepare('INSERT INTO `orders` (`productID`, `accountsID`, `date_created`, `jumlah`, `total`) VALUES (?,?,?,?,?)');
 
   if (empty($_SESSION['id'])) {
-    header('Location: register/index.php');
+    header('Location: register/.');
     exit;
   }
   $productID = $_POST['id'];
