@@ -1,16 +1,9 @@
 # shoppingcart
- 
-## kerjakaan hal berikut
-Buat header dan nav nya berbeda ketika login.
-entitas yang perlu <b>ditambahkan</b>:
-<ul>
-  <li>Nama costumer</li>
-  <li>button logout</li>
-</ul>
-entitas yang di perlukan <b>dihilangkan</b>:
-<ul>
-  <li>register</li>
-  <li>button login</li>
- </ul>
- 
- 
+Website E-commerce that build with PHP and MySQL.
+
+# <a href="http://47.254.197.133/" style="text-align: center; ">Click Me to live preview.</a>
+## how to install Shoppingcart on your computer
+<ol>
+  <li>Clone this repository</li>
+</ol>
+
