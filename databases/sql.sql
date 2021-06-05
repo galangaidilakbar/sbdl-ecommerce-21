@@ -3,6 +3,10 @@ CREATE DATABASE shoppingcart;
 -- then we use the shoppingcart database
 USE shoppingcart;
 
+-- create user yuda with all privileges
+CREATE USER 'yuda'@'localhost' IDENTIFIED BY 'tes123';
+GRANT ALL PRIVILEGES ON * . * TO 'yuda'@'localhost';
+
 -- create table products
 CREATE TABLE IF NOT EXISTS `products` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,

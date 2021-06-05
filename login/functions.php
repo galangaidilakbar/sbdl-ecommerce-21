@@ -14,8 +14,8 @@ function mysqli_connect_to_database()
 {
   // Change this to your connection info.
   $DATABASE_HOST = 'localhost';
-  $DATABASE_USER = 'root';
-  $DATABASE_PASS = '';
+  $DATABASE_USER = 'yuda';
+  $DATABASE_PASS = 'tes123';
   $DATABASE_NAME = 'shoppingcart';
   // Try and connect using the info above.
   return mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
