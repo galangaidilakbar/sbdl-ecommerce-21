@@ -189,6 +189,16 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- create events to delete log_products
+DELIMITER $$
+CREATE EVENT IF NOT EXISTS delete_log_product
+ON SCHEDULE EVERY 1 WEEK STARTS NOW()
+DO
+BEGIN
+	DELETE FROM log_products;
+END $$
+DELIMITER ;
+
 -- try to inserting some values to table products
 INSERT INTO `products` (`id`, `name`, `desc`, `price`, `rrp`, `quantity`, `img`, `date_added`) VALUES
 (1, 'Smart Watch', '<p>Unique watch made with stainless steel, ideal for those that prefer interative watches.</p>\r\n<h3>Features</h3>\r\n<ul>\r\n<li>Powered by Android with built-in apps.</li>\r\n<li>Adjustable to fit most.</li>\r\n<li>Long battery life, continuous wear for up to 2 days.</li>\r\n<li>Lightweight design, comfort on your wrist.</li>\r\n</ul>', '29.99', '0.00', 10, 'watch.jpg', '2019-03-13 17:55:22'),
