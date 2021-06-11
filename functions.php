@@ -96,7 +96,9 @@ EOT;
 // this function return total products in database
 function count_total_products()
 {
-  $pdo = pdo_connect_mysql();
+  require_once "config/database.php";
+  $conn = new connectDB();
+  $pdo = $conn->pdo_connect();
   $stmt = $pdo->prepare('SELECT count_total_product()');
   $stmt->execute();
   $total_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
