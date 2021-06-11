@@ -21,4 +21,23 @@ class product
 
     return $result;
   }
+
+  function show_product($id)
+  {
+    require_once "config/database.php";
+    $conn = new connectDB();
+
+    $pdo = $conn->pdo_connect();
+
+    $stmt = $pdo->prepare('CALL tampilkan_produk(?)');
+
+    $stmt->execute([$id]);
+
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $conn = null;
+    $stmt = null;
+
+    return $product;
+  }
 }

@@ -1,29 +1,45 @@
 <?php
 // Check to make sure the id parameter is specified in the URL
+
 if (isset($_GET['id'])) {
-  // Prepare statement and execute, prevents SQL injection
-  $stmt = $pdo->prepare('CALL tampilkan_produk(?)');
-  $stmt->execute([$_GET['id']]);
-  // Fetch the product from the database and return the result as an Array
-  $product = $stmt->fetch(PDO::FETCH_ASSOC);
-  // Check if the product exists (array is not empty)
+  // if id is specified in the URL
+  // reqiure with the PHP-OOP class to show the product
+
+  require_once "manage-product.php";
+  $data = new product();
+
+  // Fetch the product from the PHP-OOP class with function show_product(param)
+  // pass the $_GET['id'] into parameter
+
+  $product = $data->show_product($_GET['id']);
+
+  // Check if the product exists
   if (!$product) {
-    // Simple error to display if the id for the product doesn't exists (array is empty)
+    // Simple error to display if the id for the product doesn't exists
+
     exit('Product does not exist!');
   }
 } else {
   // Simple error to display if the id wasn't specified
+
   exit('Product does not exist!');
 }
 ?>
+
+<!-- check if the costumer is already login -->
+
 <?php if (isset($_SESSION['loggedin'])) : ?>
+  <!-- Load header with costumer name and logout button -->
+
   <?= costumer_template_header($product['name'], $_SESSION['name']) ?>
 <?php else : ?>
+  <!-- Use default header if costumer wasn't login -->
+
   <?= template_header($product['name']) ?>
 <?php endif; ?>
 
 <div class="product content-wrapper">
-  <img src="imgs/<?= $product['img'] ?>" width="500" height="500" alt="<?= $product['name'] ?>">
+  <img src="assets/products/<?= $product['img'] ?>" width="500" height="500" alt="<?= $product['name'] ?>">
   <div>
     <h1 class="name"><?= $product['name'] ?></h1>
     <span class="price">
