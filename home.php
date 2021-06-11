@@ -1,8 +1,8 @@
 <?php
 // Get the 4 most recently added products using view recently_added
-$stmt = $pdo->prepare('SELECT * FROM `recently_added`');
-$stmt->execute();
-$recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+require_once "manage-product.php";
+$products = new product();
+$recently_added_products = $products->recently_added();
 ?>
 
 <?php if (isset($_SESSION['loggedin'])) : ?>
@@ -20,7 +20,7 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <div class="products">
     <?php foreach ($recently_added_products as $product) : ?>
       <a href="index.php?page=product&id=<?= $product['id'] ?>" class="product">
-        <img src="imgs/<?= $product['img'] ?>" width="200" height="200" alt="<?= $product['name'] ?>">
+        <img src="assets/products/<?= $product['img'] ?>" width="200" height="200" alt="<?= $product['name'] ?>">
         <span class="name"><?= $product['name'] ?></span>
         <span class="price">
           &dollar;<?= $product['price'] ?>
