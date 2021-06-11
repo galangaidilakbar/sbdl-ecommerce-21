@@ -14,7 +14,9 @@ if ($_SESSION['role'] == 'costumer') {
 
 include '../functions.php';
 // Connect to MySQL database
-$pdo = pdo_connect_mysql();
+require_once "../config/database.php";
+$conn = new connectDB();
+$pdo = $conn->pdo_connect();
 // Get the page via GET request (URL param: page), if non exists default the page to 1
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 // Number of records to show on each page
