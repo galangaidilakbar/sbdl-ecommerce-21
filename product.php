@@ -1,40 +1,38 @@
 <?php
 // Check to make sure the id parameter is specified in the URL
-
 if (isset($_GET['id'])) {
+
   // if id is specified in the URL
   // reqiure with the PHP-OOP class to show the product
-
   require_once "manage-product.php";
   $data = new product();
 
   // Fetch the product from the PHP-OOP class with function show_product(param)
   // pass the $_GET['id'] into parameter
-
   $product = $data->show_product($_GET['id']);
 
   // Check if the product exists
   if (!$product) {
-    // Simple error to display if the id for the product doesn't exists
 
+    // Simple error to display if the id for the product doesn't exists
     exit('Product does not exist!');
   }
 } else {
-  // Simple error to display if the id wasn't specified
 
+  // Simple error to display if the id wasn't specified
   exit('Product does not exist!');
 }
 ?>
 
 <!-- check if the costumer is already login -->
-
 <?php if (isset($_SESSION['loggedin'])) : ?>
+
   <!-- Load header with costumer name and logout button -->
-
   <?= costumer_template_header($product['name'], $_SESSION['name']) ?>
-<?php else : ?>
-  <!-- Use default header if costumer wasn't login -->
 
+<?php else : ?>
+
+  <!-- Use default header if costumer wasn't login -->
   <?= template_header($product['name']) ?>
 <?php endif; ?>
 
