@@ -155,10 +155,10 @@ header .link-icons a span {
 main .featured {
   display: flex;
   flex-direction: column;
-  background-image: url(imgs/computer-823613_1920.jpg);
+  background-image: url(../products/featured-image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 650px;
+  height: 400px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -170,7 +170,7 @@ main .featured h2 {
   width: 1050px;
   font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
   font-size: 68px;
-  color: var(--black);
+  color: var(--white);
   padding-bottom: 10px;
 }
 
@@ -179,7 +179,7 @@ main .featured p {
   margin: 0;
   width: 1050px;
   font-size: 24px;
-  color: var(--black);
+  color: var(--white);
 }
 
 main .recentlyadded h2 {
