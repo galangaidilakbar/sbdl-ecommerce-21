@@ -76,8 +76,8 @@ SELECT `id`, `img`, `name`, `price`, `rrp` FROM products ORDER BY date_added DES
 
 -- create view to show incoming orders
 -- this view will we use in admin/orders.php
-CREATE VIEW orderan_masuk AS
-SELECT products.`name`, accounts.`username`, `orders`.`jumlah`, products.`price`, orders.`total`
+CREATE OR REPLACE VIEW orderan_masuk AS
+SELECT accounts.`username`, products.`name`, orders.date_created AS Tanggal_Pemesanan, `orders`.`jumlah`, products.`price`, orders.`total`
 FROM `orders`
 INNER JOIN products ON orders.`productID` = `products`.`id`
 INNER JOIN accounts ON orders.`accountsID` = `accounts`.`id`;

@@ -40,4 +40,23 @@ class product
 
     return $product;
   }
+
+  function check_product($id)
+  {
+    require_once "config/database.php";
+    $conn = new connectDB();
+
+    $pdo = $conn->pdo_connect();
+
+    $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
+
+    $stmt->execute([$id]);
+
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $conn = null;
+    $stmt = null;
+
+    return $product;
+  }
 }
