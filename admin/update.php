@@ -14,7 +14,10 @@ if ($_SESSION['role'] == 'costumer') {
 }
 
 include '../functions.php';
-$pdo = pdo_connect_mysql();
+// Connect to MySQL database
+require_once "../config/database.php";
+$conn = new connectDB();
+$pdo = $conn->pdo_connect();
 $msg = '';
 // Check if the products id exists, for example update.php?id=1 will get the contact with the id of 1
 if (isset($_GET['id'])) {

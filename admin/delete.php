@@ -13,7 +13,10 @@ if ($_SESSION['role'] == 'costumer') {
 }
 
 include '../functions.php';
-$pdo = pdo_connect_mysql();
+// Connect to MySQL database
+require_once "../config/database.php";
+$conn = new connectDB();
+$pdo = $conn->pdo_connect();
 $msg = '';
 // Check that the products ID exists
 if (isset($_GET['id'])) {
