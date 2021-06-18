@@ -89,7 +89,9 @@ if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION[
 
   try {
     $stmt->execute([$productID, $accountsID, $current_date_time, $jumlah, $total]);
-  } catch (\Throwable $e) {
+    throw new Exception("Error Processing Request", 1);
+    
+  } catch (Exception $e) {
     echo "Someting went wrong happen <br>";
     echo $e->getMessage();
     exit;

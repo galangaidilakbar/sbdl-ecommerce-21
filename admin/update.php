@@ -38,8 +38,9 @@ if (isset($_GET['id'])) {
 
         try {
             $stmt->execute([$_GET['id'], $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
-        } catch (\Throwable $e) {
-            $msg = "Unable to update product, please try again!";
+            throw new Exception("Unable to update the product, please try again!");
+        } catch (Exception $e) {
+            $msg = "Unable to update the product, please try again!";
         }
     }
     // Get the products from the products table
@@ -65,7 +66,7 @@ if (isset($_GET['id'])) {
         </div>
     <?php endif; ?>
 
-    <?php if ($msg == "Unable to update product, please try again!") : ?>
+    <?php if ($msg == "Unable to update the product, please try again!") : ?>
         <div class="alert danger">
             <span class="closebtn">&times;</span>
             <p><?= $msg ?></p>
