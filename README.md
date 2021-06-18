@@ -1,9 +1,5 @@
 # shoppingcart
-Website E-commerce that build with PHP and MySQL.
+E-commerce Website that build with PHP OOP and MySQL.
 
-# <a href="http://47.254.197.133/" style="text-align: center; ">Click Me to live preview.</a>
-## how to install Shoppingcart on your computer
-<ol>
-  <li>Clone this repository</li>
-</ol>
+We built this Website to complete the final project of the advanced database systems course.
 
