@@ -25,7 +25,7 @@ include 'functions.php';
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
+				<input type="text" name="username" placeholder="Username" id="username" required autofocus autocomplete="off">
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
