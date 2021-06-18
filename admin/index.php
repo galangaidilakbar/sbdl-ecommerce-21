@@ -61,7 +61,7 @@ $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
                     <td><?= $product['rrp'] ?></td>
                     <td><?= $product['quantity'] ?></td>
                     <td>
-                        <img src="../imgs/<?= $product['img'] ?>" width="50" height="50" alt="<?= $product['name'] ?>">
+                        <img src="../assets/products/<?= $product['img'] ?>" width="50" height="50" alt="<?= $product['name'] ?>">
                     </td>
                     <td><?= $product['date_added'] ?></td>
                     <td class="actions">
