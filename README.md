@@ -3,6 +3,8 @@
 <img src="assets/web/detail-products.png" alt="detail products">
 <h3 align="left">A Brief Description About This Project</h3>
 <p>In order to complete the Final Project of the advanced database system course, We build and develop an e-commerce information system for the business of buying and selling gadgets. This website was built using the PHP programming language as a dynamic processing, and MySQL for database.</p>
+<h3>How to Connect PHO to MySQL</h3>
+<p>to connect PHP to MySQL, we use two methods namely PDO and MySQLi</p>
 <p>In MySQL, we use advanced Query like: 
  <ul>
    <li>Subquery</li>
