@@ -1,3 +1,11 @@
+<!-- SHOPPINGCART
+ ****************************************************
+ * Developer Team : Galang aidil akbar, Mardha Yuda Kurniawan, Ahmad Sofiyan Alfandi. 
+ * Release Date   : 24 May 2021
+ * Twitter        : https://twitter.com/galang_aidil, https://twitter.com/alfandi04_ 
+ * E-mail         : galangaidil45@gmail.com, yumardha@gmail.com, alfafandi0@gmail.com.
+-->
+
 <?php
 // If the user clicked the add to cart button on the product page we can check for the form data
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['product_id']) && is_numeric($_POST['quantity'])) {
@@ -15,7 +23,6 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
 
   // Check if the product exists (array is not empty)
   if ($product && $quantity > 0) {
-
     // Product exists in database, now we can create/update the session variable for the cart
     if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
       if (array_key_exists($product_id, $_SESSION['cart'])) {
@@ -23,12 +30,10 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
         // Product exists in cart so just update the quanity
         $_SESSION['cart'][$product_id] += $quantity;
       } else {
-
         // Product is not in cart so add it
         $_SESSION['cart'][$product_id] = $quantity;
       }
     } else {
-
       // There are no products in cart, this will add the first product to cart
       $_SESSION['cart'] = array($product_id => $quantity);
     }
@@ -46,10 +51,8 @@ if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['ca
 
 // Update product quantities in cart if the user clicks the "Update" button on the shopping cart page
 if (isset($_POST['update']) && isset($_SESSION['cart'])) {
-
   // Loop through the post data so we can update the quantities for every product in cart
   foreach ($_POST as $k => $v) {
-
     if (strpos($k, 'quantity') !== false && is_numeric($v)) {
       $id = str_replace('quantity-', '', $k);
       $quantity = (int)$v;
@@ -72,7 +75,6 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
   // we have to require costumer to login before be abble place order.
   if (empty($_SESSION['loggedin'])) {
-
     //  throw to login page
     header('Location: login/.');
     exit;
@@ -89,11 +91,8 @@ if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION[
 
   try {
     $stmt->execute([$productID, $accountsID, $current_date_time, $jumlah, $total]);
-    throw new Exception("Error Processing Request", 1);
-    
   } catch (Exception $e) {
     echo "Someting went wrong happen <br>";
-    echo $e->getMessage();
     exit;
   }
 
@@ -127,6 +126,11 @@ if ($products_in_cart) {
 }
 ?>
 
+<!-- 
+EN : to find out if the customer has logged in or not, we have to check session 'loggedin'. if it isset and has a value of true, then use costumer_template_header(?,?).if not, use template_header().
+
+ID : juntuk mengetahui pelanggan sudah login atau belum, kita bisa mengeceknya menggunakan session 'loginin'. jika sudah diatur dan memiliki nilai true, maka gunakan costumer_template_header(?,?). kalau belum, gunakan template_header()
+-->
 <?php if (isset($_SESSION['loggedin'])) : ?>
   <?= costumer_template_header('Cart', $_SESSION['name']) ?>
 <?php else : ?>
