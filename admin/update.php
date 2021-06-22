@@ -38,7 +38,6 @@ if (isset($_GET['id'])) {
 
         try {
             $stmt->execute([$_GET['id'], $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
-            throw new Exception("Unable to update the product, please try again!");
         } catch (Exception $e) {
             $msg = "Unable to update the product, please try again!";
         }
