@@ -1,3 +1,11 @@
+<!-- SHOPPINGCART
+ ****************************************************
+ * Developer Team : Galang aidil akbar, Mardha Yuda Kurniawan, Ahmad Sofiyan Alfandi. 
+ * Release Date   : 24 May 2021
+ * Twitter        : https://twitter.com/galang_aidil, https://twitter.com/alfandi04_ 
+ * E-mail         : galangaidil45@gmail.com, yumardha@gmail.com, alfafandi0@gmail.com.
+-->
+
 <?php
 // Check to make sure the id parameter is specified in the URL
 if (isset($_GET['id'])) {
@@ -24,15 +32,14 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<!-- check if the costumer is already login -->
+<!-- 
+EN : to find out if the customer has logged in or not, we have to check session 'loggedin'. if it isset and has a value of true, then use costumer_template_header(?,?).if not, use template_header().
+
+ID : juntuk mengetahui pelanggan sudah login atau belum, kita bisa mengeceknya menggunakan session 'loginin'. jika sudah diatur dan memiliki nilai true, maka gunakan costumer_template_header(?,?). kalau belum, gunakan template_header()
+-->
 <?php if (isset($_SESSION['loggedin'])) : ?>
-
-  <!-- Load header with costumer name and logout button -->
   <?= costumer_template_header($product['name'], $_SESSION['name']) ?>
-
 <?php else : ?>
-
-  <!-- Use default header if costumer wasn't login -->
   <?= template_header($product['name']) ?>
 <?php endif; ?>
 
