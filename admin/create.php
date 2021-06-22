@@ -40,7 +40,6 @@ if (!empty($_POST)) {
 
     try {
         $stmt->execute([$id, $name, $desc, $price, $rrp, $quantity, $img, $dataadded]);
-        throw new Exception("Something went wrong, Please try again!");
     } catch (Exception $e) {
         $msg = 'Something went wrong, Please try again!';
     }
